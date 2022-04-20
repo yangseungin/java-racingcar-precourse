@@ -9,8 +9,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NameTest {
 
-
-    @DisplayName("정상적이 이름 생성 테스트")
+    @DisplayName("정상적인 이름 생성 테스트")
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "woni", "jun"})
     void create_name(String name) {
