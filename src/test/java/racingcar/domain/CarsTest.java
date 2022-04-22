@@ -15,7 +15,7 @@ class CarsTest {
     @ValueSource(strings = {"pobi,woni,jun", "yang,SVC"})
     void createCars(String names) {
         Cars cars = new Cars(names);
-        List<Car> carValue = cars.getValue();
+        List<Car> carValue = cars.getValues();
         String[] namesArray = names.split(",");
 
         assertThat(carValue.size())

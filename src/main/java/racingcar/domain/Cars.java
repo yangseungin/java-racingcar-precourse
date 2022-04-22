@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cars {
     private static final String NAME_DELIMITER = ",";
-    private final List<Car> value;
+    private final List<Car> values;
 
     public Cars(String input) {
         List<Car> cars = new ArrayList<>();
@@ -14,14 +14,14 @@ public class Cars {
             cars.add(new Car(carName));
         }
 
-        this.value = cars;
+        this.values = cars;
     }
 
-    public Cars(List<Car> value) {
-        this.value = value;
+    public Cars(List<Car> values) {
+        this.values = values;
     }
 
-    public List<Car> getValue() {
-        return value;
+    public List<Car> getValues() {
+        return values;
     }
 }

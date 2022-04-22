@@ -4,10 +4,11 @@ import java.util.Objects;
 
 public class Position {
     private static final int INCREASE_AMOUNT = 1;
+    private static final int INITIAL_POSITION = 0;
     private int value;
 
     public Position() {
-        this.value = 0;
+        this.value = INITIAL_POSITION;
     }
 
     public int getValue() {
