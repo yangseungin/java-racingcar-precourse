@@ -26,6 +26,15 @@ class NameTest {
                 .hasMessageContaining("[ERROR] 이름은 5자리 이하여야 합니다.");
     }
 
+    @DisplayName("이름은 빈값이 올 수 없다.")
+    @ParameterizedTest
+    @ValueSource(strings = {" ",""})
+    void name_can_not_be_empty(String name) {
+        assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 이름은 빈 값이 올 수 없습니다.");
+    }
+
     @DisplayName("이름 비교는 equals로 동등성을 확인한다.")
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "woni", "jun"})

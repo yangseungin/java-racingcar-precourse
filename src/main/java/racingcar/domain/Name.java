@@ -1,12 +1,18 @@
 package racingcar.domain;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import java.util.Objects;
 
 public class Name {
     private static final int MAX_NAME_LENGTH = 5;
-    private String value;
+    private final String value;
 
     public Name(String value) {
+        if (StringUtils.isBlank(value)) {
+            throw new IllegalArgumentException("[ERROR] 이름은 빈 값이 올 수 없습니다.");
+        }
+
         if (value.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 이름은 5자리 이하여야 합니다.");
         }
