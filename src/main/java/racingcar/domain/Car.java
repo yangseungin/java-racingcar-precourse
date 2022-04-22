@@ -16,4 +16,11 @@ public class Car {
     public Position getPosition() {
         return position;
     }
+
+    public void move(MoveStrategy moveStrategy) {
+        if (moveStrategy.movable()) {
+            position.increase();
+        }
+
+    }
 }

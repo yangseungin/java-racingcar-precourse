@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -16,5 +17,26 @@ class CarTest {
 
         assertThat(car.getName()).isEqualTo(new Name(name));
         assertThat(car.getPosition()).isEqualTo(new Position());
+    }
+
+    @DisplayName("자동차는 한칸 이동할 수 있다.")
+    @Test
+    void move_car() {
+        Car car = new Car(new Name("yang"));
+        car.move(() -> true);
+
+        Position movedPosition = new Position();
+        movedPosition.increase();
+        assertThat(car.getPosition()).isEqualTo(movedPosition);
+    }
+
+    @DisplayName("자동차는 이동하지 않을 수 있다.")
+    @Test
+    void not_move_car() {
+        Car car = new Car(new Name("yang"));
+        car.move(() -> false);
+
+        Position movedPosition = new Position();
+        assertThat(car.getPosition()).isEqualTo(movedPosition);
     }
 }
