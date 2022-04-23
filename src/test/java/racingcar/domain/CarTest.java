@@ -32,7 +32,7 @@ class CarTest {
         Car car = new Car("yang");
         car.move(() -> false);
 
-        Position movedPosition = new Position();
-        assertThat(car.getPosition()).isEqualTo(movedPosition);
+        Position notMovedPosition = new Position();
+        assertThat(car.getPosition()).isEqualTo(notMovedPosition);
     }
 }
