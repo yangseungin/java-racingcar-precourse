@@ -24,4 +24,11 @@ public class Cars {
     public List<Car> getValues() {
         return values;
     }
+
+    public void allCarsMove(MoveStrategy moveStrategy){
+        for(Car car:values){
+            car.move(moveStrategy);
+        }
+
+    }
 }
