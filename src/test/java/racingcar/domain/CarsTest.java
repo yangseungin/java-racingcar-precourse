@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -10,10 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarsTest {
 
-    @DisplayName("자동차들을 생성한다.")
     @ParameterizedTest
     @ValueSource(strings = {"pobi,woni,jun", "yang,SVC"})
-    void createCars(String names) {
+    void 자동차들을_생성한다(String names) {
         Cars cars = new Cars(names);
         List<Car> carValue = cars.getValues();
         String[] namesArray = names.split(",");

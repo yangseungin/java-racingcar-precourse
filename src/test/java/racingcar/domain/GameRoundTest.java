@@ -22,8 +22,5 @@ class GameRoundTest {
         assertThatThrownBy(() -> new GameRound(repeatNumber))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("게임 라운드는 1보다 작을 수 없습니다.");
-
     }
-
-
 }

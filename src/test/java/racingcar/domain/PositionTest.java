@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,16 +16,15 @@ class PositionTest {
         position = new Position();
     }
 
-    @DisplayName("위치의 초기값은 0")
     @Test
-    void create_position() {
+    void 위치의_초기값은_0() {
         assertThat(position.getValue()).isEqualTo(0);
     }
 
-    @DisplayName("위치는 1씩 증가한다.")
+
     @ParameterizedTest
     @ValueSource(ints = {5, 7})
-    void position_is_incremented_by_1(int count) {
+    void 위치는_1씩_증가한다(int count) {
         for (int i = 0; i < count; i++) {
             position.increase();
         }
@@ -34,10 +32,9 @@ class PositionTest {
         assertThat(position.getValue()).isEqualTo(count);
     }
 
-    @DisplayName("위치 비교는 equals로 동등성을 확인한다.")
     @ParameterizedTest
     @ValueSource(ints = {5, 7})
-    void equals(int count) {
+    void 위치비교_동등성확인(int count) {
         Position anotherPosition = new Position();
         for (int i = 0; i < count; i++) {
             position.increase();
@@ -46,5 +43,4 @@ class PositionTest {
 
         assertThat(position).isEqualTo(anotherPosition);
     }
-
 }
