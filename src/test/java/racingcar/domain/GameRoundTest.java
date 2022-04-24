@@ -21,7 +21,7 @@ class GameRoundTest {
     void 숫자가_아닌_입력으로_게임라운드_생성실패(String repeatNumber) {
         assertThatThrownBy(() -> new GameRound(repeatNumber))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 시도할 회수는 숫자여야합니다.");
+                .hasMessageContaining("[ERROR] 시도 횟수는 숫자여야 한다.");
     }
 
 
