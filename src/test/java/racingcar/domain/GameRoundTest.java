@@ -17,10 +17,19 @@ class GameRoundTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"0t", "-1e"})
+    void 숫자가_아닌_입력으로_게임라운드_생성실패(String repeatNumber) {
+        assertThatThrownBy(() -> new GameRound(repeatNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 시도할 회수는 숫자여야합니다.");
+    }
+
+
+    @ParameterizedTest
     @ValueSource(strings = {"0", "-1"})
     void 숫자1_보다_작은_횟수입력으로_게임라운드_생성실패(String repeatNumber) {
         assertThatThrownBy(() -> new GameRound(repeatNumber))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("게임 라운드는 1보다 작을 수 없습니다.");
+                .hasMessageContaining("[ERROR] 게임 라운드는 1보다 작을 수 없습니다.");
     }
 }
