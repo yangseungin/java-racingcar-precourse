@@ -17,10 +17,6 @@ public class Cars {
         this.values = cars;
     }
 
-    public Cars(List<Car> values) {
-        this.values = values;
-    }
-
     public List<Car> getValues() {
         return values;
     }
@@ -29,5 +25,13 @@ public class Cars {
         for (Car car : values) {
             car.move(moveStrategy);
         }
+    }
+
+    public int getLargestPositionAmongCars() {
+        int max = 0;
+        for (Car car : values) {
+            max = Math.max(max, car.getPosition().getValue());
+        }
+        return max;
     }
 }
