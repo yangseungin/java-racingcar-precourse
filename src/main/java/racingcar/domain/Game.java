@@ -1,36 +1,73 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.view.GameView;
 
 public class Game {
+    private final GameView gameView;
     private Cars cars;
+    private GameRound gameRound;
 
     public Game() {
+        gameView = new GameView();
     }
 
     public void play() {
-        System.out.println("경주할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        cars = new Cars(input);
-        System.out.println("시도할 회수는 몇회인가요?");
-        String repeatNumber = Console.readLine();
-        GameRound gameRound = new GameRound(repeatNumber);
+        initCars();
+        initGameRound();
 
+        playGame();
+
+        gameOver();
+    }
+
+    private void gameOver() {
+        gameView.printExecutionResult();
+        Winners winners = new Winners(cars);
+        gameView.printFinalWinners(winners);
+    }
+
+    private void playGame() {
         for (int i = 0; i < gameRound.getValue(); i++) {
             cars.allCarsMove(new RandomMoveStrategy());
-            printGameRoundResult(cars);
+            gameView.printGameRoundResult(cars);
         }
-        Winners winners = new Winners(cars);
-        System.out.println(winners.getWinnersMessage());
+    }
 
+    private void initGameRound() {
+        do {
+            gameView.printInputGameRound();
+
+        } while (!isSuccessGameRound());
 
     }
 
-    private void printGameRoundResult(Cars cars) {
-        StringBuilder sb = new StringBuilder();
-        for (Car car : cars.getValues()) {
-            sb.append(car.getPositionMessage()).append("\n");
+    private boolean isSuccessGameRound() {
+        try {
+            gameRound = new GameRound(Console.readLine());
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println(sb);
+
+        return false;
+    }
+
+    private void initCars() {
+        do {
+            gameView.printInputCarNames();
+        } while (!isSuccessCars());
+
+    }
+
+    private boolean isSuccessCars() {
+        String input = Console.readLine();
+        try {
+            cars = new Cars(input);
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }

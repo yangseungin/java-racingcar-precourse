@@ -13,11 +13,11 @@ public class GameRound {
         try {
             Integer.parseInt(repeatNumber);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 회수는 숫자여야합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도할 회수는 숫자여야합니다.");
         }
 
         if (Integer.parseInt(repeatNumber) < MIN_ROUND) {
-            throw new IllegalArgumentException("게임 라운드는 1보다 작을 수 없습니다.");
+            throw new IllegalArgumentException("[ERROR] 게임 라운드는 1보다 작을 수 없습니다.");
         }
     }
 
