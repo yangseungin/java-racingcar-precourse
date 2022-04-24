@@ -61,9 +61,8 @@ public class Game {
     }
 
     private boolean isSuccessCars() {
-        String input = Console.readLine();
         try {
-            cars = new Cars(input);
+            cars = new Cars(Console.readLine());
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

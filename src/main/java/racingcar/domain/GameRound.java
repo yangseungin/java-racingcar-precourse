@@ -13,7 +13,7 @@ public class GameRound {
         try {
             Integer.parseInt(repeatNumber);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 시도할 회수는 숫자여야합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
 
         if (Integer.parseInt(repeatNumber) < MIN_ROUND) {
