@@ -20,7 +20,10 @@ public class Game {
             cars.allCarsMove(new RandomMoveStrategy());
             printGameRoundResult(cars);
         }
-        //TODO 실행결과 출력 필요
+        Winners winners = new Winners(cars);
+        System.out.println(winners.getWinnersMessage());
+
+
     }
 
     private void printGameRoundResult(Cars cars) {
