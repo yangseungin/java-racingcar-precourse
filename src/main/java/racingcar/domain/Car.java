@@ -25,6 +25,18 @@ public class Car {
         }
     }
 
+    public String getPositionMessage() {
+        return this.name.getValue() + " : " + positionToHyphen();
+    }
+
+    private String positionToHyphen() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position.getValue(); i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

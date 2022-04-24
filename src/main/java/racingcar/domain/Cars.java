@@ -25,10 +25,9 @@ public class Cars {
         return values;
     }
 
-    public void allCarsMove(MoveStrategy moveStrategy){
-        for(Car car:values){
+    public void allCarsMove(MoveStrategy moveStrategy) {
+        for (Car car : values) {
             car.move(moveStrategy);
         }
-
     }
 }

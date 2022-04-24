@@ -17,8 +17,17 @@ public class Game {
         GameRound gameRound = new GameRound(repeatNumber);
 
         for (int i = 0; i < gameRound.getValue(); i++) {
-            //TODO cars에서 car들이 모두 move를 시도하는 메소드 필요
+            cars.allCarsMove(new RandomMoveStrategy());
+            printGameRoundResult(cars);
         }
         //TODO 실행결과 출력 필요
+    }
+
+    private void printGameRoundResult(Cars cars) {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : cars.getValues()) {
+            sb.append(car.getPositionMessage()).append("\n");
+        }
+        System.out.println(sb);
     }
 }
